@@ -1,5 +1,11 @@
-from . import db
+from . import db,login_manager
 from datetime import datetime
+from werkzeug.security import generate_password_hash,check_password_hash
+
+@login_manager.user_loader
+def load_user(user_id):
+  return User.query.get(int(user_id))
+  
 class User(db.Model):
   '''
   user class to define user objects
@@ -13,6 +19,8 @@ class User(db.Model):
   bio=db.Column(db.String(255))
   pitches=db.relationship('Pitch',backref='user',lazy="dynamic")
   comment=db.relationship('Comment',backref='user',lazy='dynamic')
+
+
 class Pitch(db.Model):
   '''
   pitch class to define pitch objects
