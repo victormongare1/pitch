@@ -27,7 +27,12 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href=""><button class="btn-xs btn-danger">SIGN IN</button></a></li>
+        {% if current_user.is_authenticated %}
+        <li style="color:white;padding:15px;">{{current_user.username}}</li>
+        <li><a href="{{url_for('auth.logout')"></a><button class="btn-xs btn-warning">SIGN OUT</button></li>
+        {% else %}
+        <li><a href="{{url_for('auth.login')}}"><button class="btn-xs btn-danger">SIGN IN</button></a></li>
+        {% endif %}
       </ul>
     </div> 
   </div>
