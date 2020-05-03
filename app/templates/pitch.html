@@ -22,11 +22,11 @@
         <h4>Comments</h4>
           <hr>
           {{ wtf.quick_form(comment_form) }}
-          {% endif %}
-          {%for comment in comments_list%}
-            <h5 >{{comment.user.username}}</h5>
-            <h5 > {{comment.content}}</h5>
+          
+          {%for comment in comments%}
+            <h4>{{comment.user.username}} : {{comment.content}}</h4>
           {%endfor%}
+        {% endif %}  
     </div>
   </div>
 </div>        
