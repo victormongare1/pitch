@@ -20,7 +20,7 @@ class User(UserMixin,db.Model):
   password_hash=db.Column(db.String(255))
   bio=db.Column(db.String(255))
   profile_pic_path=db.Column(db.String())
-  
+
   pitches=db.relationship('Pitch',backref='user',lazy="dynamic")
   comment=db.relationship('Comment',backref='user',lazy='dynamic')
   
@@ -78,9 +78,9 @@ class Pitch(db.Model):
     user = User.query.filter_by(username=uname).first()
     pitches = Pitch.query.filter_by(user_id=user.id).all()
     pitches_count = 0
-      for pitch in pitches:
-        pitches_count += 1
-      return pitches_count
+    for pitch in pitches:
+      pitches_count += 1
+    return pitches_count
   def get_comments(self):
     """
     Method that retrieves a pitch's comments.
@@ -96,7 +96,7 @@ class Comment(db.Model):
   id = db.Column(db.Integer,primary_key=True)
   pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable= False)
-  description = db.Column(db.String))
+  content = db.Column(db.String)
   
   def save_comment(self):
     db.session.add(self)

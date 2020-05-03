@@ -1,11 +1,14 @@
 {% extends 'base.html'%}
-
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static' , filename='css/index.css')}}">
+{% endblock %}
 {% block content %}
 <div class="container">
 <div class="row">
 <!-- displaying  Username-->
-  <div class="col-md-4">
-    <h3> {{user.username| capitalize}} </h3>
+  <div class="col-md-3">
+    <h3><u>{{user.username| capitalize}}</u> </h3>
 
     <!--Displaying user bio-->
     {% if user.bio %}
@@ -35,6 +38,20 @@
       <input type="submit">
     </form>
       {% endif %}
+  </div>
+  <div class="col-md-5">
+    {%for pitch in pitches%}
+    <div class="col-md-6 col-sm-6 mb-3 d-flex">
+    <div class="card flex-fill">
+        <div class="card-body">
+            <h4><u>{{(pitch.category | capitalize)}}</u></h4>
+            <h4 class="card-title"><u>{{pitch.title}}</u></h4>
+            <p class="card-text">{{pitch.description}}</p>
+            <a href="/pitch/{{pitch.id}}" class="btn btn-outline-info">View Pitch</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
   </div>
  </div>
  </div> 

@@ -18,18 +18,18 @@
             CATEGORIES
           </a>
           <div class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/interview">INTERVIEW</a>
-            <a class="dropdown-item" href="/promotion">PROMOTION</a>
+            <a class="dropdown-item" href="/pitches/interview">INTERVIEW</a><br>
+            <a class="dropdown-item" href="/pitches/promotion">PROMOTION</a><br>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/motivation">MOTIVATION</a>
-            <a class="dropdown-item" href="/product">PRODUCT</a>
+            <a class="dropdown-item" href="/pitches/motivation">MOTIVATION</a><br>
+            <a class="dropdown-item" href="/pitches/product">PRODUCT</a><br>
           </div>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
         <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><button class="btn-xs btn-warning">PROFILE</button></a></li>
-        <li><a href="{{url_for('auth.logout')"></a><button class="btn-xs btn-warning">SIGN OUT</button></li>
+        <li><a href="{{url_for('auth.logout')}}"><button class="btn-xs btn-warning">SIGN OUT</button></a></li>
         {% else %}
         <li><a href="{{url_for('auth.login')}}"><button class="btn-xs btn-danger">SIGN IN</button></a></li>
         {% endif %}

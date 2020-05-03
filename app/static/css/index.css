@@ -1,3 +1,8 @@
+body{
+  font-family: 'Lobster';
+  background-image: url(../css/ian-schneider-TamMbr4okv4-unsplash.jpg);
+  color: white;
+}
 h1{
   font-size: 50px;
 }
