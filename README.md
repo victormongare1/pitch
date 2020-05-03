@@ -14,7 +14,8 @@ To run the program:
 * open the progra using ($ ./start.sh )and enjoy
 You can also  find it at https://pitchvictor.herokuapp.com/
 ## Known Bugs
-There aligninment of the pitches into columns may be irregular and a pitch may be added twice when submitted once
+There aligninment of the pitches into columns may be irregular and a pitch may be added twice when submitted once.
+The application brings about a server error when registering but when you login with the same credentials you will be logged in
 ## Technologies Used
 Python has been the main programming language used .The use of python unittest has been utilised in the making of this application.
 There was utilisation of python functions and methods to create the functionality of the application and running it
